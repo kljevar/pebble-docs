@@ -1,0 +1,144 @@
+@import '@chloe0592/pebble/styles';
+
+/* ─── Nextra CSS variables (replaces <Head /> which can't be used in App Router) ─── */
+
+:root {
+  /* Primary: #6366f1 = hsl(239, 84%, 67%) */
+  --nextra-primary-hue: 239deg;
+  --nextra-primary-saturation: 84%;
+  --nextra-primary-lightness: 67%;
+
+  /* Background RGB triplet — used by Nextra for navbar/sidebar blur surfaces */
+  --nextra-bg: 240 238 248;
+
+  --nextra-content-width: 90rem;
+}
+
+.dark {
+  --nextra-primary-hue: 239deg;
+  --nextra-primary-saturation: 84%;
+  --nextra-primary-lightness: 70%;
+  --nextra-bg: 15 13 26;
+}
+
+::selection {
+  background: hsla(239deg, 84%, 67%, 0.3);
+}
+
+/* ─── Page background ─── */
+
+html {
+  background:
+    radial-gradient(ellipse at 15% 50%, rgba(139, 92, 246, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 20%, rgba(99, 102, 241, 0.14) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 85%, rgba(236, 72, 153, 0.1) 0%, transparent 45%),
+    #f0eef8;
+  background-attachment: fixed;
+}
+
+html.dark {
+  background:
+    radial-gradient(ellipse at 15% 50%, rgba(139, 92, 246, 0.25) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 20%, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 85%, rgba(168, 85, 247, 0.15) 0%, transparent 45%),
+    #0f0d1a;
+  background-attachment: fixed;
+}
+
+/* ─── Sidebar: transparent so gradient shows through ─── */
+
+/* Sidebar footer sticky strip */
+aside.nextra-sidebar > div:last-child,
+.nextra-sidebar-footer {
+  background: transparent;
+}
+
+/* ─── Navbar: frosted glass ─── */
+
+.nextra-navbar-blur,
+nav,
+header,
+.nextra-nav-container,
+div[class*="nextra-nav"] {
+  background: rgba(240, 238, 248, 0.7) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.dark .nextra-navbar-blur,
+.dark nav,
+.dark header,
+.dark .nextra-nav-container,
+.dark div[class*="nextra-nav"] {
+  background: rgba(15, 13, 26, 0.7) !important;
+}
+
+/* ─── Content area: transparent ─── */
+
+article {
+  background: transparent;
+}
+
+/* ─── Tables: glass aesthetic ─── */
+
+article table {
+  border-color: rgba(99, 102, 241, 0.15);
+}
+
+article table th,
+article table td {
+  border-color: rgba(99, 102, 241, 0.15);
+}
+
+article table thead tr {
+  background: rgba(120, 100, 200, 0.08);
+}
+
+article table tbody tr {
+  background: transparent;
+}
+
+article table tbody tr:nth-child(even) {
+  background: rgba(120, 100, 200, 0.04);
+}
+
+/* ─── Code blocks: glass aesthetic ─── */
+
+pre,
+.nextra-code,
+div[class*="nextra-code"] {
+  background: rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: none !important;
+}
+
+.dark pre,
+.dark .nextra-code,
+.dark div[class*="nextra-code"],
+.dark div.nextra-code pre {
+  background: rgba(30, 25, 60, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ─── Active sidebar item: glass accent ─── */
+/*
+ * Nextra applies x:bg-primary-100 / x:text-primary-800 (light) and
+ * x:dark:bg-primary-400/10 / x:dark:text-primary-600 (dark) via the
+ * CSS variables below. Scoping overrides to the aside keeps all other
+ * primary-color usage unaffected.
+ */
+
+aside.nextra-sidebar {
+  background: transparent;
+  --x-color-primary-100: rgba(99, 102, 241, 0.12);
+  --x-color-primary-800: #6366f1;
+}
+
+.dark aside.nextra-sidebar {
+  --x-color-primary-400: #6366f1;
+  --x-color-primary-600: #6366f1;
+}
+

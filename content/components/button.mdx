@@ -1,11 +1,17 @@
+import ButtonDemo from '../../src/components/demos/ButtonDemo'
+
 # Button
 
 The `Button` component supports multiple variants and sizes with spring-press animations.
 
+## Preview
+
+<ButtonDemo />
+
 ## Import
 
 ```tsx
-import { Button } from 'pebble-design-system'
+import { Button } from '@chloe0592/pebble'
 ```
 
 ## Usage
@@ -14,6 +20,7 @@ import { Button } from 'pebble-design-system'
 <Button>Primary</Button>
 <Button variant="secondary">Secondary</Button>
 <Button variant="ghost">Ghost</Button>
+<Button variant="outline">Outline</Button>
 <Button variant="danger">Danger</Button>
 ```
 
@@ -21,7 +28,7 @@ import { Button } from 'pebble-design-system'
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `variant` | `'primary' \| 'secondary' \| 'ghost' \| 'danger'` | `'primary'` | Visual style |
+| `variant` | `'primary' \| 'secondary' \| 'ghost' \| 'outline' \| 'danger'` | `'primary'` | Visual style |
 | `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Button size |
 | `disabled` | `boolean` | `false` | Disables interaction |
 | `isLoading` | `boolean` | `false` | Shows spinner, disables interaction |

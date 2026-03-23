@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Layout, Navbar } from 'nextra-theme-docs'
 import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
+import './globals.css'
 
 export const metadata: Metadata = {
   title: {
@@ -9,6 +10,10 @@ export const metadata: Metadata = {
     default: 'Pebble',
   },
   description: 'Pebble Design System — iOS 26 Liquid Glass component library',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'rgb(240, 238, 248)' },
+    { media: '(prefers-color-scheme: dark)', color: 'rgb(15, 13, 26)' },
+  ],
 }
 
 const navbar = (
