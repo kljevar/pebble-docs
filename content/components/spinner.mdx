@@ -1,0 +1,33 @@
+import SpinnerDemo from '../../src/components/demos/SpinnerDemo'
+
+# Spinner
+
+The `Spinner` component indicates a loading state. Supports five sizes, an optional label, and two color modes.
+
+## Preview
+
+<SpinnerDemo />
+
+## Import
+
+```tsx
+import { Spinner } from '@chloe0592/pebble'
+```
+
+## Usage
+
+```tsx
+<Spinner />
+
+<Spinner size="lg" label="Loading data…" />
+
+<Spinner size="sm" color="white" />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | Spinner size |
+| `label` | `string` | — | Accessible label displayed next to the spinner |
+| `color` | `'indigo' \| 'white'` | `'indigo'` | Spinner color |

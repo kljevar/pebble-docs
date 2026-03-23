@@ -1,0 +1,44 @@
+import SelectDemo from '../../src/components/demos/SelectDemo'
+
+# Select
+
+The `Select` component is a custom dropdown supporting labels, helper text, error states, and three sizes. Pass `<option>` elements as children.
+
+## Preview
+
+<SelectDemo />
+
+## Import
+
+```tsx
+import { Select } from '@chloe0592/pebble'
+```
+
+## Usage
+
+```tsx
+<Select placeholder="Choose an option">
+  <option value="a">Option A</option>
+  <option value="b">Option B</option>
+</Select>
+
+<Select label="Country" placeholder="Select a country">
+  <option value="us">United States</option>
+  <option value="uk">United Kingdom</option>
+</Select>
+
+<Select label="Status" errorText="Please select a status." />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | — | Label displayed above the select |
+| `helperText` | `string` | — | Muted hint text below the select |
+| `errorText` | `string` | — | Error message; also sets error styling |
+| `placeholder` | `string` | — | Placeholder shown when no value is selected |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Select height |
+| `disabled` | `boolean` | `false` | Disables interaction |
+
+All other props are forwarded to the underlying select element.

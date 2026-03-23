@@ -1,0 +1,39 @@
+import CheckboxDemo from '../../src/components/demos/CheckboxDemo'
+
+# Checkbox
+
+The `Checkbox` component supports labels, helper text, indeterminate state, and two sizes.
+
+## Preview
+
+<CheckboxDemo />
+
+## Import
+
+```tsx
+import { Checkbox } from '@chloe0592/pebble'
+```
+
+## Usage
+
+```tsx
+<Checkbox label="Accept terms and conditions" />
+
+<Checkbox label="Subscribe" helperText="You can unsubscribe at any time." defaultChecked />
+
+<Checkbox label="Select all" indeterminate />
+
+<Checkbox label="Disabled option" disabled />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `ReactNode` | — | Label displayed next to the checkbox |
+| `helperText` | `string` | — | Muted hint text below the label |
+| `indeterminate` | `boolean` | `false` | Sets the indeterminate (mixed) state |
+| `size` | `'sm' \| 'md'` | `'md'` | Checkbox size |
+| `disabled` | `boolean` | `false` | Disables interaction |
+
+All other props are forwarded to the underlying `<input type="checkbox">` element.

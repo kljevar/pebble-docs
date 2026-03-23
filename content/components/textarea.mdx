@@ -1,0 +1,47 @@
+import TextareaDemo from '../../src/components/demos/TextareaDemo'
+
+# Textarea
+
+The `Textarea` component supports labels, helper text, error states, and resize control.
+
+## Preview
+
+<TextareaDemo />
+
+## Import
+
+```tsx
+import { Textarea } from '@chloe0592/pebble'
+```
+
+## Usage
+
+```tsx
+<Textarea placeholder="Enter text..." />
+
+<Textarea label="Bio" placeholder="Tell us about yourself" />
+
+<Textarea
+  label="Notes"
+  helperText="Max 500 characters"
+  placeholder="Add a note..."
+/>
+
+<Textarea
+  label="Description"
+  errorText="Description is required"
+  placeholder="Enter description"
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | — | Label displayed above the textarea |
+| `helperText` | `string` | — | Muted hint text below the textarea |
+| `errorText` | `string` | — | Error message; also sets error styling |
+| `resize` | `'none' \| 'vertical' \| 'both'` | `'vertical'` | Controls resize handle |
+| `disabled` | `boolean` | `false` | Disables interaction |
+
+All other props are forwarded to the underlying `<textarea>` element.

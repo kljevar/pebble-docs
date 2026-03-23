@@ -1,0 +1,56 @@
+import ModalDemo from '../../src/components/demos/ModalDemo'
+
+# Modal
+
+The `Modal` component renders a dialog overlay. It is fully controlled — manage `isOpen` and `onClose` in your own state.
+
+## Preview
+
+<ModalDemo />
+
+## Import
+
+```tsx
+import { Modal } from '@chloe0592/pebble'
+```
+
+## Usage
+
+```tsx
+function Example() {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open modal</Button>
+
+      <Modal
+        isOpen={open}
+        onClose={() => setOpen(false)}
+        title="Confirm action"
+        description="Are you sure you want to proceed?"
+        footer={
+          <>
+            <Button variant="ghost" onClick={() => setOpen(false)}>Cancel</Button>
+            <Button variant="primary" onClick={() => setOpen(false)}>Confirm</Button>
+          </>
+        }
+      >
+        <p>Optional body content goes here.</p>
+      </Modal>
+    </>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `isOpen` | `boolean` | — | Controls whether the modal is visible |
+| `onClose` | `() => void` | — | Called when the modal requests to close |
+| `title` | `string` | — | Heading displayed at the top of the modal |
+| `description` | `string` | — | Subheading below the title |
+| `footer` | `ReactNode` | — | Content rendered in the footer (typically buttons) |
+| `size` | `'sm' \| 'md' \| 'lg' \| 'full'` | `'md'` | Modal width |
+| `closeOnBackdrop` | `boolean` | `true` | Whether clicking the backdrop closes the modal |

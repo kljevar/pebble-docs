@@ -1,0 +1,39 @@
+import TooltipDemo from '../../src/components/demos/TooltipDemo'
+
+# Tooltip
+
+The `Tooltip` component wraps any element and shows a floating label on hover. Supports four placement options.
+
+## Preview
+
+<TooltipDemo />
+
+## Import
+
+```tsx
+import { Tooltip } from '@chloe0592/pebble'
+```
+
+## Usage
+
+```tsx
+<Tooltip content="Save your changes">
+  <Button variant="ghost">Save</Button>
+</Tooltip>
+
+<Tooltip content="More info" placement="right">
+  <span>Hover me</span>
+</Tooltip>
+
+<Tooltip content={<strong>Rich content</strong>} placement="bottom">
+  <Button variant="outline">Details</Button>
+</Tooltip>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `content` | `ReactNode` | — | Text or element shown inside the tooltip |
+| `placement` | `'top' \| 'right' \| 'bottom' \| 'left'` | `'top'` | Position relative to the trigger |
+| `children` | `ReactElement` | — | The element that triggers the tooltip |

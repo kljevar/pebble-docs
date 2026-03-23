@@ -1,0 +1,48 @@
+import CardDemo from '../../src/components/demos/CardDemo'
+import ProductCardDemo from '../../src/components/demos/ProductCardDemo'
+
+# Card
+
+The `Card` component is a surface container with optional `Header`, `Body`, and `Footer` sub-components. Supports four variants plus hoverable and clickable modes.
+
+## Preview
+
+<CardDemo />
+
+## Example: Product card
+
+<ProductCardDemo />
+
+## Import
+
+```tsx
+import { Card } from '@chloe0592/pebble'
+```
+
+## Usage
+
+```tsx
+<Card>
+  <Card.Header>Title</Card.Header>
+  <Card.Body>Content goes here.</Card.Body>
+  <Card.Footer>Footer actions</Card.Footer>
+</Card>
+
+<Card variant="elevated" hoverable>
+  <Card.Body>Elevated card with hover effect.</Card.Body>
+</Card>
+
+<Card variant="bordered" clickable onClick={() => {}}>
+  <Card.Body>Clickable card.</Card.Body>
+</Card>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'default' \| 'elevated' \| 'bordered' \| 'flat'` | `'default'` | Visual style |
+| `hoverable` | `boolean` | `false` | Adds a lift effect on hover |
+| `clickable` | `boolean` | `false` | Makes the whole card interactive |
+
+`Card.Header`, `Card.Body`, and `Card.Footer` accept any `children` and standard `div` props.

@@ -1,0 +1,49 @@
+import InputDemo from '../../src/components/demos/InputDemo'
+
+# Input
+
+The `Input` component supports labels, helper text, error states, icons, and three sizes.
+
+## Preview
+
+<InputDemo />
+
+## Import
+
+```tsx
+import { Input } from '@chloe0592/pebble'
+```
+
+## Usage
+
+```tsx
+<Input placeholder="Enter text..." />
+
+<Input label="Email" placeholder="you@example.com" />
+
+<Input
+  label="Username"
+  helperText="Must be at least 3 characters"
+  placeholder="Enter username"
+/>
+
+<Input
+  label="Password"
+  errorText="Password is too short"
+  placeholder="Enter password"
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | — | Label displayed above the input |
+| `helperText` | `string` | — | Muted hint text below the input |
+| `errorText` | `string` | — | Error message; also sets error styling |
+| `leftIcon` | `ReactNode` | — | Icon rendered on the left inside the input |
+| `rightIcon` | `ReactNode` | — | Icon rendered on the right inside the input |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Input height |
+| `disabled` | `boolean` | `false` | Disables interaction |
+
+All other props are forwarded to the underlying `<input>` element.
