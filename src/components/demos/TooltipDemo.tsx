@@ -1,7 +1,7 @@
 'use client'
 
 import { Tooltip, Button } from '@chloe0592/pebble'
-import styles from './ButtonDemo.module.css'
+import styles from './Demo.module.css'
 
 export default function TooltipDemo() {
   return (

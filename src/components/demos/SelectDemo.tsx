@@ -1,7 +1,7 @@
 'use client'
 
 import { Select } from '@chloe0592/pebble'
-import styles from './ButtonDemo.module.css'
+import styles from './Demo.module.css'
 
 const options = (
   <>

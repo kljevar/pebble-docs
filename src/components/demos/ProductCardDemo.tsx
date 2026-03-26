@@ -1,7 +1,7 @@
 'use client'
 
 import { Badge, Button } from '@chloe0592/pebble'
-import styles from './ButtonDemo.module.css'
+import styles from './Demo.module.css'
 
 export default function ProductCardDemo() {
   return (
@@ -12,7 +12,7 @@ export default function ProductCardDemo() {
           width: 340,
           borderRadius: 20,
           overflow: 'hidden',
-          background: '#fff',
+          background: '#red',
           boxShadow: '0 8px 40px rgba(99, 102, 241, 0.12), 0 2px 8px rgba(0,0,0,0.06)',
         }}>
           {/* Hero area */}
