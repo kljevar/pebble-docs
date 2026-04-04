@@ -9,10 +9,19 @@ export default function SpinnerDemo() {
       <div>
         <div className={styles.label}>Sizes</div>
         <div className={styles.row} style={{ alignItems: 'center' }}>
+          <Spinner size="xs" />
           <Spinner size="sm" />
           <Spinner size="md" />
           <Spinner size="lg" />
           <Spinner size="xl" />
+        </div>
+      </div>
+
+      <div>
+        <div className={styles.label}>Colors</div>
+        <div className={styles.row} style={{ alignItems: 'center' }}>
+          <Spinner size="md" color="indigo" />
+          <Spinner size="md" color="white" />
         </div>
       </div>
 

@@ -3,14 +3,12 @@
 import { Select } from '@chloe0592/pebble'
 import styles from './Demo.module.css'
 
-const options = (
-  <>
-    <option value="apple">Apple</option>
-    <option value="banana">Banana</option>
-    <option value="cherry">Cherry</option>
-    <option value="mango">Mango</option>
-  </>
-)
+const options = [
+  <option key="apple" value="apple">Apple</option>,
+  <option key="banana" value="banana">Banana</option>,
+  <option key="cherry" value="cherry">Cherry</option>,
+  <option key="mango" value="mango">Mango</option>,
+]
 
 export default function SelectDemo() {
   return (
