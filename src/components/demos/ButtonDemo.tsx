@@ -30,7 +30,7 @@ export default function ButtonDemo() {
         <div className={styles.label}>States</div>
         <div className={styles.row}>
           <Button variant="primary" disabled>Disabled</Button>
-          <Button variant="primary" isLoading>Loading</Button>
+          <Button variant="primary" isLoading />
         </div>
       </div>
     </div>

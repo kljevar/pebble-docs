@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import { Layout, Navbar } from 'nextra-theme-docs'
+import { Layout } from 'nextra-theme-docs'
 import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
 import './globals.css'
+import { SiteNavbar } from '@/src/components/SiteNavbar'
 
 export const metadata: Metadata = {
   title: {
@@ -16,12 +17,7 @@ export const metadata: Metadata = {
   ],
 }
 
-const navbar = (
-  <Navbar
-    logo={<strong>Pebble</strong>}
-    projectLink="https://github.com/kljevar/pebble"
-  />
-)
+const navbar = <SiteNavbar showSearch />
 
 export default async function RootLayout({
   children,
