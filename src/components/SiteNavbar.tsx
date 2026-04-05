@@ -1,6 +1,6 @@
 'use client'
 
-import { type ReactNode } from 'react'
+import { useState, useEffect, type ReactNode } from 'react'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import { Search } from 'nextra/components'
@@ -16,6 +16,12 @@ function GitHubIcon() {
 
 function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return <div style={{ width: 36, height: 36 }} />
+
   const isDark = resolvedTheme === 'dark'
   return (
     <button
