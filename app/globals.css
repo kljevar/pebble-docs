@@ -33,6 +33,7 @@
 /* ─── Page background ─── */
 
 html {
+  scrollbar-gutter: stable;
   background:
     radial-gradient(ellipse at 15% 50%, rgba(139, 92, 246, 0.28) 0%, transparent 55%),
     radial-gradient(ellipse at 85% 20%, rgba(99, 102, 241, 0.22) 0%, transparent 50%),
@@ -80,10 +81,35 @@ div[class*="Header"] {
   background: rgba(15, 13, 26, 0.7) !important;
 }
 
-/* ─── Content area: transparent ─── */
+/* ─── Content area ─── */
 
 article {
   background: transparent;
+  max-width: 860px !important;
+  margin-inline: auto !important;
+  padding-inline: 2.5rem !important;
+}
+
+/* ─── Heading anchors: hide by default, show on hover ─── */
+
+.subheading-anchor {
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+h2:hover .subheading-anchor,
+h3:hover .subheading-anchor,
+h4:hover .subheading-anchor {
+  opacity: 1;
+}
+
+/* ─── Hide TOC sidebar ─── */
+
+.nextra-toc,
+nav[class*="toc"],
+div[class*="toc"],
+aside[class*="toc"] {
+  display: none !important;
 }
 
 /* ─── Light mode text: force darker colors for contrast ─── */
@@ -142,41 +168,85 @@ div[class*="nextra-code"] {
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-/* ─── Light mode sidebar text contrast ─── */
-
-:not(.dark) .nextra-sidebar,
-:not(.dark) div[class*="nextra-sidebar"],
-:not(.dark) aside {
-  color: #2d2850 !important;
-
-  a[class*="active"] {
-    color: #6366f1 !important;
-    font-weight: 600 !important;
-  }
-
-  p[class*="menu-title"],
-  div[class*="menu-title"] {
-    color: #1a1730 !important;
-    font-weight: 600 !important;
-  }
-}
-
-/* ─── Active sidebar item: glass accent ─── */
-/*
- * Nextra applies x:bg-primary-100 / x:text-primary-800 (light) and
- * x:dark:bg-primary-400/10 / x:dark:text-primary-600 (dark) via the
- * CSS variables below. Scoping overrides to the aside keeps all other
- * primary-color usage unaffected.
- */
+/* ─── Sidebar ─── */
 
 aside.nextra-sidebar {
   background: transparent;
-  --x-color-primary-100: rgba(99, 102, 241, 0.12);
+  border-right: 1px solid rgba(99, 102, 241, 0.1);
+
+  /* Token overrides for active item */
+  --x-color-primary-100: rgba(99, 102, 241, 0.1);
   --x-color-primary-800: #6366f1;
 }
 
+/* Only expand width when sidebar is open (no-scrollbar class is added by Nextra when expanded) */
+aside.nextra-sidebar.no-scrollbar {
+  width: 280px !important;
+  min-width: 280px !important;
+}
+
+/* Section headers (folder titles) — light */
+:not(.dark) aside.nextra-sidebar li > button {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: rgba(99, 102, 241, 0.7) !important;
+  margin-top: 20px !important;
+  margin-bottom: 4px !important;
+}
+
+/* Nav items — light */
+:not(.dark) aside.nextra-sidebar a {
+  font-size: 15px !important;
+  padding: 7px 12px !important;
+  border-radius: 8px !important;
+  color: #2d2850 !important;
+}
+
+:not(.dark) aside.nextra-sidebar a:hover:not([class*="active"]) {
+  background: rgba(99, 102, 241, 0.06) !important;
+}
+
+:not(.dark) aside.nextra-sidebar a[class*="active"] {
+  background: rgba(99, 102, 241, 0.1) !important;
+  color: #6366f1 !important;
+  font-weight: 600 !important;
+}
+
+/* Dark mode sidebar */
 .dark aside.nextra-sidebar {
-  --x-color-primary-400: #6366f1;
-  --x-color-primary-600: #6366f1;
+  border-right-color: rgba(255, 255, 255, 0.06);
+  --x-color-primary-400: #818cf8;
+  --x-color-primary-600: #818cf8;
+}
+
+/* Section headers (folder titles) — dark */
+.dark aside.nextra-sidebar li > button {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: rgba(139, 92, 246, 0.7) !important;
+  margin-top: 20px !important;
+  margin-bottom: 4px !important;
+}
+
+/* Nav items — dark */
+.dark aside.nextra-sidebar a {
+  font-size: 15px !important;
+  padding: 7px 12px !important;
+  border-radius: 8px !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.dark aside.nextra-sidebar a:hover:not([class*="active"]) {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.dark aside.nextra-sidebar a[class*="active"] {
+  background: rgba(99, 102, 241, 0.15) !important;
+  color: #818cf8 !important;
+  font-weight: 600 !important;
 }
 

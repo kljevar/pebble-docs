@@ -33,6 +33,8 @@ export default async function RootLayout({
           navbar={navbar}
           pageMap={pageMap}
           docsRepositoryBase="https://github.com/kljevar/pebble"
+          feedback={{ content: null }}
+          editLink={null}
           footer={<></>}
         >
           {children}
