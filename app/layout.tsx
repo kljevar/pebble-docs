@@ -4,6 +4,7 @@ import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
 import './globals.css'
 import { SiteNavbar } from '@/src/components/SiteNavbar'
+import { NoLastUpdated } from '@/src/components/NoLastUpdated'
 
 export const metadata: Metadata = {
   title: {
@@ -35,6 +36,7 @@ export default async function RootLayout({
           docsRepositoryBase="https://github.com/kljevar/pebble"
           feedback={{ content: null }}
           editLink={null}
+          lastUpdated={<NoLastUpdated />}
           footer={<></>}
         >
           {children}

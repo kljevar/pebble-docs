@@ -147,6 +147,30 @@
   padding: 80px 24px;
 }
 
+.cursorGlow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  --cursor-x: -9999px;
+  --cursor-y: -9999px;
+  background: radial-gradient(
+    circle 300px at var(--cursor-x) var(--cursor-y),
+    rgba(139, 92, 246, 0.1) 0%,
+    transparent 70%
+  );
+  transition: background 0.15s ease-out;
+}
+
+@media (hover: none) {
+  .cursorGlow {
+    display: none;
+  }
+}
+
 .heroEyebrow {
   display: inline-flex;
   align-items: center;
@@ -418,6 +442,21 @@
 
 /* ─── Dark mode showcase ─── */
 
+.darkShowcaseCursorGlow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  --cursor-local-x: -9999px;
+  --cursor-local-y: -9999px;
+  background: radial-gradient(
+    circle 300px at var(--cursor-local-x) var(--cursor-local-y),
+    rgba(139, 92, 246, 0.10) 0%,
+    transparent 70%
+  );
+  transition: background 0.15s ease-out;
+}
+
 .darkShowcase {
   padding: 120px 40px;
   background:
@@ -435,6 +474,8 @@
 .darkShowcaseInner {
   max-width: 960px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .darkShowcaseEyebrow {

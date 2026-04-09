@@ -52,19 +52,38 @@ const COMPONENTS = [
 ]
 
 export default function LandingPage() {
-  const heroRef = useRef<HTMLElement>(null)
+  const cursorRef = useRef<HTMLDivElement>(null)
+  const darkShowcaseRef = useRef<HTMLElement>(null)
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const el = heroRef.current
-    if (!el) return
-    const x = (e.clientX / window.innerWidth) * 100
-    const y = (e.clientY / window.innerHeight) * 100
-    el.style.setProperty('--cursor-x', x + '%')
-    el.style.setProperty('--cursor-y', y + '%')
-  }
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      const el = cursorRef.current
+      if (!el) return
+      el.style.setProperty('--cursor-x', e.clientX + 'px')
+      el.style.setProperty('--cursor-y', e.clientY + 'px')
+      document.documentElement.style.setProperty('--cursor-x', e.clientX + 'px')
+      document.documentElement.style.setProperty('--cursor-y', e.clientY + 'px')
+
+      // Compute section-relative coords for the dark showcase glow
+      const darkEl = darkShowcaseRef.current
+      if (darkEl) {
+        const rect = darkEl.getBoundingClientRect()
+        const glowEl = darkEl.querySelector('[data-cursor-glow]') as HTMLElement | null
+        if (glowEl) {
+          glowEl.style.setProperty('--cursor-local-x', (e.clientX - rect.left) + 'px')
+          glowEl.style.setProperty('--cursor-local-y', (e.clientY - rect.top) + 'px')
+        }
+      }
+    }
+    document.addEventListener('mousemove', handler)
+    return () => document.removeEventListener('mousemove', handler)
+  }, [])
 
   return (
     <div className={styles.page}>
+
+      {/* ── Cursor glow overlay ── */}
+      <div className={styles.cursorGlow} ref={cursorRef} aria-hidden="true" />
 
       {/* ── Animated gradient blobs ── */}
       <div className={styles.blobLayer} aria-hidden="true">
@@ -167,7 +186,8 @@ export default function LandingPage() {
       </section>
 
       {/* ── Dark mode showcase ── */}
-      <section className={styles.darkShowcase}>
+      <section ref={darkShowcaseRef} className={styles.darkShowcase} style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className={styles.darkShowcaseCursorGlow} data-cursor-glow aria-hidden="true" />
         <div className={styles.darkShowcaseInner}>
           <FadeIn>
             <p className={styles.darkShowcaseEyebrow}>Dark mode</p>
