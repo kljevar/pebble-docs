@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import Link from 'next/link'
-import { Button, Badge } from '@chloe0592/pebble'
+import { Button, Badge, Input, Card, Checkbox } from '@chloe0592/pebble'
 import { SiteNavbar } from '@/src/components/SiteNavbar'
 import styles from './LandingPage.module.css'
 
@@ -52,6 +52,17 @@ const COMPONENTS = [
 ]
 
 export default function LandingPage() {
+  const heroRef = useRef<HTMLElement>(null)
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const el = heroRef.current
+    if (!el) return
+    const x = (e.clientX / window.innerWidth) * 100
+    const y = (e.clientY / window.innerHeight) * 100
+    el.style.setProperty('--cursor-x', x + '%')
+    el.style.setProperty('--cursor-y', y + '%')
+  }
+
   return (
     <div className={styles.page}>
 
@@ -152,6 +163,66 @@ export default function LandingPage() {
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Dark mode showcase ── */}
+      <section className={styles.darkShowcase}>
+        <div className={styles.darkShowcaseInner}>
+          <FadeIn>
+            <p className={styles.darkShowcaseEyebrow}>Dark mode</p>
+            <h2 className={styles.darkShowcaseHeading}>Beautiful in the dark.</h2>
+            <p className={styles.darkShowcaseSubline}>
+              Every component is designed dark-first — glass surfaces glow on deep backgrounds.
+            </p>
+          </FadeIn>
+          <FadeIn delay={100}>
+            <div className={`dark ${styles.darkShowcaseGrid}`}>
+
+              {/* Top left: Buttons */}
+              <div className={styles.glassBox} style={{ minHeight: 180, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 16 }}>
+                <p className={styles.glassBoxLabel}>Buttons</p>
+                <div className={styles.glassBoxRow} style={{ gap: 12 }}>
+                  <Button variant="primary" size="sm">Primary</Button>
+                  <Button variant="secondary" size="sm">Secondary</Button>
+                  <Button variant="danger" size="sm">Danger</Button>
+                  <Button variant="outline" size="sm">Outline</Button>
+                </div>
+                <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', margin: 0 }}>
+                  Five variants, three sizes, spring animations.
+                </p>
+              </div>
+
+              {/* Top right: Inputs */}
+              <div className={styles.glassBox} style={{ minHeight: 180 }}>
+                <p className={styles.glassBoxLabel}>Inputs</p>
+                <div className={styles.glassBoxStack}>
+                  <Input label="Email address" placeholder="you@example.com" />
+                  <Input label="Username" placeholder="klaudija" errorText="This username is already taken." />
+                </div>
+              </div>
+
+              {/* Bottom left: Card */}
+              <div className={styles.glassBox} style={{ minHeight: 220 }}>
+                <Card variant="elevated" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                  <Card.Header><strong style={{ color: 'rgba(255,255,255,0.9)', fontSize: 15 }}>Liquid Glass Card</strong></Card.Header>
+                  <Card.Body><p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14, margin: 0 }}>Glass surfaces feel alive — frosted, luminous, and responsive to light.</p></Card.Body>
+                  <Card.Footer><Button variant="primary" size="sm">Explore</Button></Card.Footer>
+                </Card>
+              </div>
+
+              {/* Bottom right: Checkboxes */}
+              <div className={styles.glassBox} style={{ minHeight: 220, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <p className={styles.glassBoxLabel}>Preferences</p>
+                <div className={styles.glassBoxStack}>
+                  <Checkbox label="Enable animations" defaultChecked />
+                  <Checkbox label="Reduce motion" />
+                  <Checkbox label="High contrast mode" />
+                </div>
+              </div>
+
+            </div>
+          </FadeIn>
         </div>
       </section>
 
