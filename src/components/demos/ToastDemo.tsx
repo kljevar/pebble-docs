@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { Button, ToastProvider, useToast } from '@chloe0592/pebble'
 import styles from './Demo.module.css'
 import toastStyles from './ToastDemo.module.css'
@@ -92,6 +93,10 @@ function PositionGrid() {
 // ── Main ───────────────────────────────────────────────────────
 
 export default function ToastDemo() {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+  if (!mounted) return null
+
   return (
     <div className={styles.container}>
       <ToastProvider position="bottom-right">

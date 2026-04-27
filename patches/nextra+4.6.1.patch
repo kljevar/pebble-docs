@@ -1,0 +1,48 @@
+diff --git a/node_modules/nextra/dist/client/components/banner/index.client.js b/node_modules/nextra/dist/client/components/banner/index.client.js
+index 9153d50..0b0fffb 100644
+--- a/node_modules/nextra/dist/client/components/banner/index.client.js
++++ b/node_modules/nextra/dist/client/components/banner/index.client.js
+@@ -2,9 +2,15 @@
+ import { jsx } from "react/jsx-runtime";
+ import { c as _c } from "react-compiler-runtime";
+ import { useEffect, useRef } from "react";
+-const ClientBanner = (props) => {
++const ClientBanner = ({ storageKey, ...props }) => {
+   const $ = _c(4);
+   const banner = useRef(null);
++  useEffect(() => {
++    if (!banner.current) return;
++    try {
++      banner.current.classList.toggle("x:hidden", !!localStorage.getItem(storageKey));
++    } catch (e) {}
++  }, [storageKey]);
+   let t0;
+   let t1;
+   if ($[0] === Symbol.for("react.memo_cache_sentinel")) {
+diff --git a/node_modules/nextra/dist/client/components/banner/index.js b/node_modules/nextra/dist/client/components/banner/index.js
+index cc37a41..30c728f 100644
+--- a/node_modules/nextra/dist/client/components/banner/index.js
++++ b/node_modules/nextra/dist/client/components/banner/index.js
+@@ -61,12 +61,7 @@ const Banner = (t0) => {
+   }
+   let t6;
+   if ($[11] !== dismissible || $[12] !== hideBannerScript || $[13] !== storageKey) {
+-    t6 = dismissible && /* @__PURE__ */ jsxs(CloseBannerButton, { storageKey, children: [
+-      /* @__PURE__ */ jsx("script", { dangerouslySetInnerHTML: {
+-        __html: hideBannerScript
+-      } }),
+-      /* @__PURE__ */ jsx(XIcon, { height: "1em" })
+-    ] });
++    t6 = dismissible && /* @__PURE__ */ jsx(CloseBannerButton, { storageKey, children: /* @__PURE__ */ jsx(XIcon, { height: "1em" }) });
+     $[11] = dismissible;
+     $[12] = hideBannerScript;
+     $[13] = storageKey;
+@@ -76,7 +71,7 @@ const Banner = (t0) => {
+   }
+   let t7;
+   if ($[15] !== t5 || $[16] !== t6) {
+-    t7 = /* @__PURE__ */ jsxs(ClientBanner, { className: t3, suppressHydrationWarning: true, children: [
++    t7 = /* @__PURE__ */ jsxs(ClientBanner, { className: t3, storageKey, suppressHydrationWarning: true, children: [
+       t5,
+       t6
+     ] });
