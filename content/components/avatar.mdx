@@ -1,0 +1,47 @@
+import AvatarDemo from '../../src/components/demos/AvatarDemo'
+
+# Avatar
+
+The `Avatar` component displays a user's initials or image with optional status indicators. Use `AvatarGroup` to stack multiple avatars with an overflow count.
+
+## Preview
+
+<AvatarDemo />
+
+## Import
+
+```tsx
+import { Avatar, AvatarGroup } from '@chloe0592/pebble'
+```
+
+## Usage
+
+```tsx
+<Avatar name="Klaudija Ljevar" />
+
+<Avatar name="Klaudija Ljevar" size="lg" status="online" />
+
+<AvatarGroup max={3}>
+  <Avatar name="Klaudija Ljevar" />
+  <Avatar name="Alex Kim" />
+  <Avatar name="Sam Patel" />
+  <Avatar name="Jordan Lee" />
+</AvatarGroup>
+```
+
+## Props — Avatar
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `name` | `string` | — | Used to generate initials and as the accessible label |
+| `src` | `string` | — | Image URL. Falls back to initials if omitted or on error |
+| `alt` | `string` | — | Alt text for the image |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | Avatar size |
+| `status` | `'online' \| 'offline' \| 'busy' \| 'away'` | — | Status indicator shown as a colored dot |
+
+## Props — AvatarGroup
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `max` | `number` | — | Maximum avatars to show before displaying an overflow count |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | Size applied to all avatars in the group |

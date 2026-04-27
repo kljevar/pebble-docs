@@ -1,5 +1,7 @@
 export default {
   index: 'Overview',
+  avatar: 'Avatar',
+  badge: 'Badge',
   button: 'Button',
   card: 'Card',
   checkbox: 'Checkbox',
@@ -8,5 +10,6 @@ export default {
   select: 'Select',
   spinner: 'Spinner',
   textarea: 'Textarea',
+  toast: 'Toast',
   tooltip: 'Tooltip',
 }

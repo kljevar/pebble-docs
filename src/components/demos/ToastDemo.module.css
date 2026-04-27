@@ -1,0 +1,49 @@
+.screen {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  background: rgba(99, 102, 241, 0.04);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 120px;
+}
+
+:global(.dark) .screen {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.positionBtn {
+  all: unset;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(99, 102, 241, 0.7);
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 8px;
+  padding: 8px 10px;
+  text-align: center;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  line-height: 1.3;
+}
+
+.positionBtn:hover {
+  background: rgba(99, 102, 241, 0.12);
+  color: rgba(99, 102, 241, 1);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+:global(.dark) .positionBtn {
+  color: rgba(165, 180, 252, 0.6);
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.15);
+}
+
+:global(.dark) .positionBtn:hover {
+  background: rgba(99, 102, 241, 0.16);
+  color: rgba(165, 180, 252, 1);
+  border-color: rgba(99, 102, 241, 0.35);
+}

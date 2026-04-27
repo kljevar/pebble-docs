@@ -1,0 +1,54 @@
+import ToastDemo from '../../src/components/demos/ToastDemo'
+
+# Toast
+
+The `Toast` system provides non-blocking notifications. Wrap your app (or page) in `ToastProvider`, place `ToastContainer` where toasts should appear, then trigger them with the `useToast` hook.
+
+## Preview
+
+<ToastDemo />
+
+## Import
+
+```tsx
+import { ToastProvider, ToastContainer, useToast } from '@chloe0592/pebble'
+```
+
+## Usage
+
+```tsx
+// 1. Wrap with provider
+<ToastProvider>
+  <App />
+  <ToastContainer position="bottom-right" />
+</ToastProvider>
+
+// 2. Trigger toasts anywhere inside the provider
+function MyComponent() {
+  const { addToast } = useToast()
+
+  return (
+    <Button onClick={() => addToast({ variant: 'success', message: 'Saved!' })}>
+      Save
+    </Button>
+  )
+}
+```
+
+## Props — ToastContainer
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `position` | `'top-left' \| 'top-center' \| 'top-right' \| 'bottom-left' \| 'bottom-center' \| 'bottom-right'` | `'bottom-right'` | Where toasts appear on screen |
+| `maxToasts` | `number` | — | Maximum number of toasts shown at once |
+
+## Props — addToast options
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'success' \| 'error' \| 'warning' \| 'info'` | — | Visual style and icon |
+| `message` | `string` | — | Body text |
+| `title` | `string` | — | Optional bold title above the message |
+| `duration` | `number` | `4000` | Auto-dismiss delay in ms. `0` disables auto-dismiss |
+| `dismissible` | `boolean` | `true` | Show a close button |
+| `action` | `{ label: string; onClick: () => void }` | — | Optional action button inside the toast |

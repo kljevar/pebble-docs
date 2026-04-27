@@ -1,6 +1,10 @@
+import meta from './_meta'
+
+export const componentCount = Object.keys(meta).filter(k => k !== 'index').length
+
 # Components
 
-Pebble includes 11 components, all built with CSS Modules, design tokens, and `React.forwardRef`.
+Pebble includes {componentCount} components, all built with CSS Modules, design tokens, and `React.forwardRef`.
 
 | Component | Description |
 |-----------|-------------|
@@ -13,5 +17,6 @@ Pebble includes 11 components, all built with CSS Modules, design tokens, and `R
 | Avatar | User avatar with image or initials fallback |
 | Card | Glass surface container |
 | Modal | Dialog overlay with backdrop blur |
+| Toast | Non-blocking notifications — success, error, warning, info |
 | Tooltip | Contextual hint on hover/focus |
 | Spinner | Loading indicator with gradient animation |

@@ -1,0 +1,33 @@
+import BadgeDemo from '../../src/components/demos/BadgeDemo'
+
+# Badge
+
+The `Badge` component displays a small status label. Supports six variants, two sizes, and an optional leading dot indicator.
+
+## Preview
+
+<BadgeDemo />
+
+## Import
+
+```tsx
+import { Badge } from '@chloe0592/pebble'
+```
+
+## Usage
+
+```tsx
+<Badge>Default</Badge>
+<Badge variant="success">Success</Badge>
+<Badge variant="danger" dot>Offline</Badge>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'default' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'default'` | Visual style |
+| `size` | `'sm' \| 'md'` | `'md'` | Badge size |
+| `dot` | `boolean` | `false` | Shows a colored dot before the label |
+
+All other props are forwarded to the underlying `<span>` element.

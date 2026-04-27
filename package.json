@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@chloe0592/pebble": "^0.2.0",
+    "@chloe0592/pebble": "^0.3.1",
     "next": "16.2.1",
     "nextra": "^4.6.1",
     "nextra-theme-docs": "^4.6.1",

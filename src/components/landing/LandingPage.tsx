@@ -49,6 +49,9 @@ const COMPONENTS = [
   { name: 'Modal', desc: 'Four sizes, backdrop dismiss, custom footer', href: '/components/modal' },
   { name: 'Spinner', desc: 'Five sizes, indigo and white color modes', href: '/components/spinner' },
   { name: 'Tooltip', desc: 'Four placements, rich content support', href: '/components/tooltip' },
+  { name: 'Avatar', desc: 'Sizes, status indicators, group with overflow', href: '/components/avatar' },
+  { name: 'Badge', desc: 'Six variants, two sizes, dot indicator', href: '/components/badge' },
+  { name: 'Toast', desc: 'Success, error, warning, info — auto-dismiss', href: '/components/toast' },
 ]
 
 export default function LandingPage() {
